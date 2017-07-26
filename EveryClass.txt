@@ -1,0 +1,14 @@
+//class header
+  //global(private) variables
+
+  //constructor
+
+  //main method
+    //create object of class
+    //object.run
+
+    //run method
+      //call your other methods
+
+    //methods end in (){}
+    //for/if/else have {}
