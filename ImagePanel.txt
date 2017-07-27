@@ -1,3 +1,70 @@
+    /* Isha Chakraborty
+7/27/17
+Program Name: Myself.java
+*/
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;//import File
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
+public class Myself extends JFrame
+{
+    private JFrame myselfFrame;
+    private CardPanel cp;
+    private CardLayout cards;
+
+    private String storyAboutMe;
+
+    private Image isha;
+    private String ishaImageName;
+
+    private JButton playNowButton;
+
+    public Myself()
+    {
+    }
+
+    public static void main(String[] args)
+    {
+        Myself isha = new Myself();
+        isha.run();
+    }
+
+    public void run()
+    {
+        myselfFrame = new JFrame("About Isha");
+        myselfFrame.setSize(800, 600);
+        myselfFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        myselfFrame.setLocation(0,0);
+        myselfFrame.setResizable(false);
+        cp = new CardPanel(); // adds all of the cards to CardLayout
+        myselfFrame.getContentPane().add(cp);
+        myselfFrame.setVisible(true);
+
+        cards = new CardLayout();
+        cp.setLayout(cards);
+
+        ImagePanel ip = new ImagePanel();
+        cp.add(ip, "Image Panel");
+
+        //AboutMePanel amp = new AboutMePanel();
+      // cp.add(amp, "About Me Panel");
+
+        cards.first(cp);
+    }
+
+    class CardPanel extends JPanel // CardPanel class header
+    {
+          public CardPanel() // constructor
+          {
+          }
+    }
+
     class ImagePanel extends JPanel
     {
         public ImagePanel()
@@ -36,7 +103,7 @@
               {
                   setSize(800, 300); // sets size of the panel
                   setBackground(Color.GRAY); // sets background color
-            
+
                   // instantiate play button, adds action listener, add button
                   playNowButton = new JButton("Play Now!");
                   ButtonHandlers playButtonHandler = new ButtonHandlers();
@@ -60,3 +127,8 @@
               }
      }
     }
+
+
+
+
+}
