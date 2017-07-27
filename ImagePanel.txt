@@ -1,0 +1,62 @@
+    class ImagePanel extends JPanel
+    {
+        public ImagePanel()
+        {
+            setLayout(new BorderLayout());
+            setBackground(Color.WHITE);
+            ishaImageName = "isha.jpg";
+
+            ImageComponents imageComponents = new ImageComponents();
+            add(imageComponents, BorderLayout.SOUTH);
+        }
+
+        public void paintComponent(Graphics g)
+        {
+            loadImage();
+            g.drawImage( isha, 185, 50, 400, 400, this ); // draws the main image
+        }
+        public void loadImage() // reads and loads the image file
+        {
+              try
+              {
+                  isha = ImageIO.read(new File(ishaImageName));
+              }
+              catch(IOException e)
+              {
+                 System.err.println("\n\n" + ishaImageName + " can't be found. \n\n");
+                 e.printStackTrace();
+             }
+        }
+
+      }
+
+      class ImageComponents extends JPanel // creates all of the buttons for the main screen
+      {
+              public ImageComponents() // initializes all of the buttons
+              {
+                  setSize(800, 300); // sets size of the panel
+                  setBackground(Color.GRAY); // sets background color
+            
+                  // instantiate play button, adds action listener, add button
+                  playNowButton = new JButton("Play Now!");
+                  ButtonHandlers playButtonHandler = new ButtonHandlers();
+                  playNowButton.addActionListener(playButtonHandler);
+                  add(playNowButton);
+
+              }
+
+     class ButtonHandlers implements ActionListener // handler classes for the buttons
+     {
+               public void actionPerformed(ActionEvent evt) // ActionListener method header
+              {
+
+                  String playNowCommand = evt.getActionCommand();
+                  if(playNowCommand.equals("Play Now!")) // checks for action
+                  {
+                      //cards.show(cp,"Parts of Speech");
+                  }
+
+
+              }
+     }
+    }
